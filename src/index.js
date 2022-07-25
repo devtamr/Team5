@@ -40,16 +40,21 @@ function Viewpager() {
 
   return (
     <>
-      <div id={"gameBox"} className={"gameContainer"} />
+      <div
+        id={"gameBox"}
+        className={"gameContainer"}
+        style={gameReady ? { visibility: "visible" } : { visibility: "hidden" }}
+      />
       {/* This is the initial game loading*/}
       <div
-        styles={{
+        style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
+          visibility: gameReady ? "hidden" : "visible"
         }}
       >
-        <animated.div></animated.div>
+        <animated.div>Test</animated.div>
       </div>
       {/* container for the game */}
     </>
