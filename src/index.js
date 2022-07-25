@@ -22,21 +22,13 @@ function Viewpager() {
   const transitions = useTransition(items, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    leave: { opacity: 0, position: "absolute" },
     delay: 200,
     trail: 500,
     config: config.molasses,
 
     onRest: () => setItems(["Click to play"])
   });
-
-  useEffect(() => {
-    if (items.length === 0) {
-      setTimeout(() => {
-        setItems(NUM_TRANS);
-      }, 2000);
-    }
-  }, [items]);
 
   useEffect(() => {
     const game = new Phaser.Game({
@@ -71,26 +63,28 @@ function Viewpager() {
       />
       {/* This is the initial game loading*/}
       <div
+        onClick={() => setGameReady(true)}
         style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           visibility: gameReady ? "hidden" : "visible"
         }}
       >
-        <animated.div>
-          {transitions(({ opacity }, item) => (
-            <animated.div
-              style={{
-                textAlign: "center",
-                opacity: opacity,
-                transform: `translate3d(2px,0,0)`
-              }}
-            >
-              {item}
-            </animated.div>
-          ))}
-        </animated.div>
+        {transitions(({ opacity }, item, t, index) => (
+          <animated.div
+            key={index}
+            style={{
+              textAlign: "center",
+              opacity: opacity
+            }}
+          >
+            {" " + item}
+          </animated.div>
+        ))}
       </div>
       {/* container for the game */}
     </>
