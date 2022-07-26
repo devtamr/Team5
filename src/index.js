@@ -25,9 +25,7 @@ function Viewpager() {
     leave: { opacity: 0, position: "absolute" },
     delay: 200,
     trail: 500,
-    config: config.molasses,
-
-    onRest: () => setItems(["Click to play"])
+    config: config.molasses
   });
 
   useEffect(() => {
