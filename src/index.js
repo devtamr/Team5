@@ -59,7 +59,11 @@ function Viewpager() {
       <div
         id={"gameBox"}
         className={"gameContainer"}
-        style={gameReady ? { visibility: "visible" } : { visibility: "hidden" }}
+        style={
+          gameReady
+            ? { visibility: "visible", position: "absolute" }
+            : { visibility: "hidden", position: "absolute" }
+        }
       />
       {/* This is the initial game loading*/}
       <div

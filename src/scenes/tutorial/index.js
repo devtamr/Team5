@@ -1,4 +1,5 @@
-//this is alll for movement // willmhave to change variable names to match sprites class Example extends Phaser.Scene { constructor () { super(); }
+//this is alll for movement // willmhave to change variable names to match sprites 
+class Example extends Phaser.Scene { constructor () { super(); }
 
 
 
