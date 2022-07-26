@@ -7,7 +7,7 @@ export class MyGame extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('Tiles', 'assests/tiles.png)
+    this.load.image('Tiles', 'assests/tiles.png')
     this.load.tilemapTiledJSON('testPhaserMap', 'assests/testPhaserMap.json')               
   }
 
@@ -18,13 +18,6 @@ export class MyGame extends Phaser.Scene {
     map.createStaticLayer('Background', tileset)
     map.createStaticLayer('Ground', tileset)
     }
-    this.tweens.add({
-      targets: logo,
-      y: 450,
-      duration: 500,
-      ease: "Power2",
-      yoyo: true,
-      loop: -1
-    });
-  }
+
+  
 }
